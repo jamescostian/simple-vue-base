@@ -1,0 +1,57 @@
+{
+	"name": "interview-challenge",
+	"private": true,
+	"scripts": {
+		"start": "concurrently -rk 'npm:format' 'npm:serve' 'npm:backend'",
+		"format": "chokidar 'src/**/*.js' 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' 'src/**/*.scss' 'src/**/*.sass' -c 'npx prettier --write src'",
+		"serve": "vue-cli-service serve --port 7547",
+		"backend": "chokidar 'server.js' -c 'node server.js'"
+	},
+	"dependencies": {
+		"bootstrap": "4.4",
+		"chokidar-cli": "2",
+		"concurrently": "5",
+		"core-js": "3",
+		"express": "^4.17.1",
+		"prettier": "2",
+		"vue": "2",
+		"vuetify": "2",
+		"vuex": "3"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "4",
+		"@vue/cli-plugin-vuex": "4",
+		"@vue/cli-service": "4",
+		"sass": "1",
+		"sass-loader": "8",
+		"vue-cli-plugin-vuetify": "2",
+		"vue-template-compiler": "2",
+		"vuetify-loader": "1"
+	},
+	"browserslist": [
+		"> 1%"
+	],
+	"prettier": {
+		"semi": false,
+		"singleQuote": true,
+		"jsxSingleQuote": true,
+		"quoteProps": "preserve",
+		"useTabs": true,
+		"trailingComma": "none",
+		"jsxBracketSameLine": true,
+		"printWidth": 90
+	},
+	"vue": {
+		"transpileDependencies": [
+			"vuetify"
+		],
+		"devServer": {
+			"proxy": "http://localhost:7548"
+		}
+	},
+	"babel": {
+		"presets": [
+			"@vue/cli-plugin-babel/preset"
+		]
+	}
+}
