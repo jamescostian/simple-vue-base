@@ -5,7 +5,7 @@
 		"start": "concurrently -rk 'npm:format' 'npm:serve' 'npm:backend'",
 		"format": "chokidar 'src/**/*.js' 'src/**/*.vue' 'src/**/*.ts' 'src/**/*.css' 'src/**/*.scss' 'src/**/*.sass' -c 'npx prettier --write src'",
 		"serve": "vue-cli-service serve --port 7547",
-		"backend": "chokidar 'server.js' -c 'node server.js'"
+		"backend": "chokidar --initial --silent 'server.js' -c 'node server.js'"
 	},
 	"dependencies": {
 		"bootstrap": "4.4",
